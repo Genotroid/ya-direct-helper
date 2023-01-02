@@ -9,10 +9,20 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { CampaignComponent } from './components/campaign/campaign.component';
 import { IndexPageComponent } from './pages/index-page/index-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table' 
+import { MatTableModule } from '@angular/material/table';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-    declarations: [AppComponent, LoginComponent, LogoutComponent, CampaignComponent, IndexPageComponent],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        LogoutComponent,
+        CampaignComponent,
+        IndexPageComponent,
+        HeaderComponent,
+        FooterComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatTableModule],
     providers: [],
     bootstrap: [AppComponent],
