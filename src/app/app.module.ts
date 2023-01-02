@@ -8,17 +8,13 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { CampaignComponent } from './components/campaign/campaign.component';
 import { IndexPageComponent } from './pages/index-page/index-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table' 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    LogoutComponent,
-    CampaignComponent,
-    IndexPageComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, LoginComponent, LogoutComponent, CampaignComponent, IndexPageComponent],
+    imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatTableModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
