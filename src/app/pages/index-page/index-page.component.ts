@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { CampaignService } from 'src/app/services/campaign.service';
 
 export interface PeriodicElement {
     name: string;
@@ -26,7 +27,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
     templateUrl: './index-page.component.html',
     styleUrls: ['./index-page.component.less'],
 })
-export class IndexPageComponent {
+export class IndexPageComponent implements OnInit {
+    constructor(private campaignService: CampaignService){}
+
+    ngOnInit(): void {
+        this.campaignService.getAll().subscribe(campagnList => {
+            console.log('campagnList', campagnList);
+        });
+    }
+
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     dataSource = [...ELEMENT_DATA];
 
@@ -36,10 +45,10 @@ export class IndexPageComponent {
         const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
         this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
         this.table.renderRows();
-      }
-    
-      removeData() {
+    }
+
+    removeData() {
         this.dataSource.pop();
         this.table.renderRows();
-      }
+    }
 }
