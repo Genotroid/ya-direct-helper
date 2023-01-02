@@ -1,22 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { ExpenseEntryComponent } from './expense-entry/expense-entry.component';
-// import { ExpenseEntryListComponent } from './expense-entry-list/expense-entry-list.component';
-import { LoginComponent } from './components/login/login.component';
-import { LogoutComponent } from './components/logout/logout.component';
+import { IndexPageComponent } from './pages/index-page/index-page.component';
 
-// import { ExpenseGuard } from './guards/expense.guard';
-
-const routes: Routes = [
-   { path: 'login', component: LoginComponent },
-   { path: 'logout', component: LogoutComponent },
-  //  { path: 'expenses', component: ExpenseEntryListComponent, canActivate: [ExpenseGuard]},
-  //  { path: 'expenses/detail/:id', component: ExpenseEntryComponent, canActivate: [ExpenseGuard]},
-   { path: '', redirectTo: 'login', pathMatch: 'full' }
-];
+const routes: Routes = [{ path: '', component: IndexPageComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
