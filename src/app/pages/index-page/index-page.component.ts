@@ -1,25 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { ICampaign } from 'src/app/models/campaign';
 import { CampaignService } from 'src/app/services/campaign.service';
 
-export interface PeriodicElement {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-    { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-    { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-    { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-    { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-    { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+const ELEMENT_DATA: ICampaign[] = [
+    { id: 1, name: 'Test1', status: "ACCEPTED", statistics: {clicks: 10, impressions: 20}, client: 'test' },
+    { id: 2, name: 'Test2', status: "DRAFT", statistics: {clicks: 10, impressions: 20}, client: 'test' },
+    { id: 3, name: 'Test3', status: "MODERATION", statistics: {clicks: 10, impressions: 20}, client: 'test' },
+    { id: 4, name: 'Test4', status: "REJECTED", statistics: {clicks: 10, impressions: 20}, client: 'test' },
 ];
 
 @Component({
@@ -36,10 +24,10 @@ export class IndexPageComponent implements OnInit {
         });
     }
 
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    displayedColumns: string[] = ['id', 'name', 'status', 'clicks', 'impressions', 'client'];
     dataSource = [...ELEMENT_DATA];
 
-    @ViewChild(MatTable) table: MatTable<PeriodicElement>;
+    @ViewChild(MatTable) table: MatTable<ICampaign>;
 
     addData() {
         const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
