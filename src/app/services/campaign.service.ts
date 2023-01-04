@@ -13,9 +13,9 @@ export class CampaignService {
     getAll(): Observable<ICampaign[]> {
         const apiUrl = `${AppSettings.API_URL}/campaigns`;
         const headers = new HttpHeaders({
-            Authorization: 'Bearer TOKEN',
+            Authorization: 'Bearer y0_AgAAAABYKNSrAAj3bgAAAADYnUeFUDBNeJgTTC6SQw_GbgVgmyEoQFM',
             'Accept-Language': 'en',
-            'Client-Login': 'CLIENT_LOGIN',
+            'Client-Login': 'ee2142df0c6d4b5796658e65c190216a',
         });
         const params = new HttpParams({
             fromObject: {},
