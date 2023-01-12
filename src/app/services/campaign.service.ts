@@ -12,15 +12,22 @@ export class CampaignService {
 
     getAll(): Observable<ICampaign[]> {
         const apiUrl = `${AppSettings.API_URL}/campaigns`;
+
         const headers = new HttpHeaders({
-            Authorization: 'Bearer TOKEN',
-            'Accept-Language': 'en',
-            'Client-Login': 'CLIENT_LOGIN',
-        });
-        const params = new HttpParams({
-            fromObject: {},
+            Authorization: 'Bearer y0_AgAAAABYKNSrAAj3bgAAAADZlReoKqX54pzlRx6_IKLjjjWxwlD-VYQ',
+            'Accept-Language': 'ru',
+            'Client-Login': 'genotroiddisk',
+            'Content-Type': 'application/json; charset=utf-8',
         });
 
-        return this.http.get<ICampaign[]>(apiUrl, { headers, params });
+        const requestBody: any = {
+            method: 'get',
+            params: {
+                SelectionCriteria: {},
+                FieldNames: ['Id', 'Name'],
+            },
+        };
+
+        return this.http.post<ICampaign[]>(apiUrl, requestBody, { headers });
     }
 }
